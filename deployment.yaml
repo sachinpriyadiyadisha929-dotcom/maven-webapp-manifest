@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: maven-web-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: maven-web-app
+
+  template:
+    metadata:
+      labels:
+        app: maven-web-app
+
+    spec:
+      containers:
+      - name: maven-web-app
+
+        image: 044744845748.dkr.ecr.ap-south-1.amazonaws.com/maven-webapp
+
+        ports:
+        - containerPort: 8080
